@@ -2,7 +2,6 @@ import os
 import tarfile
 from time import time
 import glob
-import random
 import gdown
 
 folders = {
@@ -29,7 +28,8 @@ if not os.path.exists('dataset'):
 for YEAR in folders.keys():
     print("Downloading year ", YEAR)
     output = f'dataset/{YEAR}.tar'
-    gdown.download(folders[YEAR], output, quiet=False)
+    url = "https://drive.google.com/uc?id={id}".format(id=folders[YEAR])
+    gdown.download(url, output, quiet=False)
 
 
 # Extract the tar files
