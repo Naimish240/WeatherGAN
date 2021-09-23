@@ -26,11 +26,12 @@ if not os.path.exists('dataset'):
 
 # Download the tar files
 for YEAR in folders.keys():
+    print("-------------------------------------")
     print("Downloading year ", YEAR)
     output = f'dataset/{YEAR}.tar'
     url = "https://drive.google.com/uc?id={id}".format(id=folders[YEAR])
     gdown.download(url, output, quiet=False)
-
+print("-------------------------------------")
 
 # Extract the tar files
 for f in glob.glob('dataset/*.tar'):
