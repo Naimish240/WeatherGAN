@@ -23,7 +23,7 @@ folders = {
 
 if not os.path.exists('dataset'):
     os.mkdir('dataset')
-
+'''
 # Download the tar files
 for YEAR in folders.keys():
     print("-------------------------------------")
@@ -32,10 +32,10 @@ for YEAR in folders.keys():
     url = "https://drive.google.com/uc?id={id}".format(id=folders[YEAR])
     gdown.download(url, output, quiet=False)
 print("-------------------------------------")
-
+'''
 # Extract the tar files
 for f in glob.glob('dataset/*.tar'):
     t1 = time()
-    with tarfile.open(f'{f}.tar', 'r') as fh:
+    with tarfile.open(f'{f}', 'r') as fh:
         fh.extractall()
     print(f"Extracted {f}.tar in {time()-t1} s")
